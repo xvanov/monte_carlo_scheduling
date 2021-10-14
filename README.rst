@@ -71,6 +71,8 @@ example::
     issue 27,adapt offline classes,8,
     issue 27,plots,3.3,
 
+Ensure no blank (whitespace) row is present in the csv file.
+
 Rules file
 """"""""""
 

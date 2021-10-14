@@ -30,6 +30,7 @@ class Evidence(object):
             r = csv.reader(f)
             r.next()
             for i, row in enumerate(r):
+                print(row)
                 project, task, estimate, actual = row[:4]
                 if actual:
                     actual = float(actual)
@@ -127,7 +128,7 @@ class Schedule(object):
         pyplot.xlabel('Completion date');
         pyplot.ylabel('Confidence');
         pyplot.grid();
-        pyplot.axes().xaxis.set_major_formatter(dates.DateFormatter('%b %d'));
+        pyplot.axes().xaxis.set_major_formatter(dates.DateFormatter('%Y-%m-%d'));
         pyplot.show()
 
 def main():
@@ -137,7 +138,7 @@ def main():
     rules = context['rules']
     schedule = Schedule(start, rules)
     ebs = Evidence(sys.argv[1])
-    title = 'Dev schedule: current projects'
+    title = 'current projects completion time'
     schedule.plot(ebs.montecarlo(), title)
 
 if __name__ == '__main__':
